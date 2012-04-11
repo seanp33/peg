@@ -10,33 +10,31 @@
     <name>peg::parent</name>
 
     <properties>
+        <shoal.version>1.6.21</shoal.version>
     </properties>
 
     <modules>
         <module>api</module>
-	<module>store</module>
+        <module>store</module>
         <module>server</module>
+        <module>agent</module>
     </modules>
 
     <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.4.1</version>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>${basedir}/graph.db</directory>
-                        </fileset>
-                        <fileset>
-                            <directory>${basedir}</directory>
-                            <includes>
-                                <include>db4odatabase</include>
-                            </includes>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.shoal</groupId>
+                <artifactId>shoal-gms-api</artifactId>
+                <version>${shoal.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.shoal</groupId>
+                <artifactId>shoal-gms-impl</artifactId>
+                <version>${shoal.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

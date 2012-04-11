@@ -1,13 +1,13 @@
 package sync;
 
 /**
- * Defines a set of steps to be carried out during the course of a {@link SyncSession}
+ * Defines a set of steps to be carried out during the course of a {@link Session}
  */
 public interface SyncPlan {
 
-    void addMember(SyncAgent agent);
+    void addMember(Agent agent);
 
-    void removeMember(SyncAgent agent);
+    void removeMember(Agent agent);
 
     void execute(boolean dryrun);
 }

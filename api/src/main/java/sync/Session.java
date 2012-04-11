@@ -3,9 +3,9 @@ package sync;
 import java.util.Collection;
 
 /**
- * Defines a session between multiple {@link SyncAgent} instances
+ * Defines a session between multiple {@link Agent} instances
  */
-public interface SyncSession {
+public interface Session {
 
     void expire();
 
