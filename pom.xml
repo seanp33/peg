@@ -11,6 +11,11 @@
 
     <properties>
         <shoal.version>1.6.21</shoal.version>
+        <jetty.version>7.6.0.v20120127</jetty.version>
+        <cometd.version>2.4</cometd.version>
+        <jetty-plugin.version>${jetty.version}</jetty-plugin.version>
+        <jackson.version>1.9.3</jackson.version>
+        <slf4j.version>1.6.4</slf4j.version>
     </properties>
 
     <modules>

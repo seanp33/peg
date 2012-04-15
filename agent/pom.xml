@@ -15,19 +15,52 @@
     </parent>
 
     <dependencies>
+
+        <!-- cometd and jetty-->
+        <dependency>
+            <groupId>org.cometd.java</groupId>
+            <artifactId>bayeux-api</artifactId>
+            <version>${cometd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.cometd.java</groupId>
+            <artifactId>cometd-java-common</artifactId>
+            <version>${cometd.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-io</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-http</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-client</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- peg version-->
         <dependency>
             <groupId>peg</groupId>
             <artifactId>api</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>org.shoal</groupId>
-            <artifactId>shoal-gms-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.shoal</groupId>
-            <artifactId>shoal-gms-impl</artifactId>
-        </dependency>
+
+        <!-- test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
