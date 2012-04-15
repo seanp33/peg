@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+    <name>agent::8080</name>
+
+    <replicationUri>http://localhost:8080/peg</replicationUri>
+
+    <initialization>
+
+        <!--24 hours-->
+        <window>86400000</window>
+
+        <buddies>
+            <buddy>http://localhost:5050/peg</buddy>
+            <buddy>http://localhost:6060/peg</buddy>
+        </buddies>
+
+    </initialization>
+
+    <peg-group>
+        <peg>http://localhost:7070/peg</peg>
+    </peg-group>
+</configuration>

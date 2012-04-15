@@ -1,4 +1,4 @@
-package sync;
+package peg;
 
 import java.util.Collection;
 

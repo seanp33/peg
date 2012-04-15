@@ -1,4 +1,4 @@
-package sync;
+package peg;
 
 /**
  * Defines a set of steps to be carried out during the course of a {@link Session}

@@ -1,10 +1,10 @@
 package peg.agent;
 
-import sync.Agent;
+import peg.Agent;
 
 import java.net.URI;
 
-public class CometDSyncAgent implements Agent {
+public class CometDAgent implements Agent {
 
     private String id, name;
 

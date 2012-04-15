@@ -1,4 +1,4 @@
-package sync;
+package peg;
 
 public interface SyncStrategy {
 }
