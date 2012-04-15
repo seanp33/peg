@@ -6,16 +6,14 @@ import sync.Agent;
 
 import java.net.URI;
 
-public class DefaultAgent implements Agent {
+public class ShoalSyncAgent implements Agent {
 
     private String id, name;
 
-    private int priority;
 
-    public DefaultAgent(String id, String name, int priority) {
+    public ShoalSyncAgent(String id, String name) {
         this.id = id;
         this.name = name;
-        this.priority = priority;
     }
 
     @Override
@@ -26,11 +24,6 @@ public class DefaultAgent implements Agent {
     @Override
     public String getName() {
         return this.name;
-    }
-
-    @Override
-    public int getPriority() {
-        return this.priority;
     }
 
     @Override

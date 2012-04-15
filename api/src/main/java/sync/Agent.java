@@ -12,8 +12,6 @@ public interface Agent {
 
     String getName();
 
-    int getPriority();
-
     void join(URI connectionPath);
 
     void leave(URI connectionPath);

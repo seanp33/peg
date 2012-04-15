@@ -15,8 +15,6 @@
 
     <modules>
         <module>api</module>
-        <module>store</module>
-        <module>server</module>
         <module>agent</module>
     </modules>
 
