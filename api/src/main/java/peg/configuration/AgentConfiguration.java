@@ -4,7 +4,9 @@ public class AgentConfiguration {
 
     private String name;
 
-    private String replicationUri;
+    private String agentAddress;
+
+    private String replicationAddress;
 
     private String[] buddies;
 
@@ -21,12 +23,20 @@ public class AgentConfiguration {
         this.name = name;
     }
 
-    public String getReplicationUri() {
-        return replicationUri;
+    public String getAgentAddress() {
+        return agentAddress;
     }
 
-    public void setReplicationUri(String replicationUri) {
-        this.replicationUri = replicationUri;
+    public void setAgentAddress(String agentAddress) {
+        this.agentAddress = agentAddress;
+    }
+
+    public String getReplicationAddress() {
+        return replicationAddress;
+    }
+
+    public void setReplicationAddress(String replicationAddress) {
+        this.replicationAddress = replicationAddress;
     }
 
     public String[] getBuddies() {

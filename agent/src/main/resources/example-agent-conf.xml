@@ -2,10 +2,10 @@
 <configuration>
     <name>agent::8080</name>
 
-    <replicationUri>http://localhost:8080/peg</replicationUri>
+    <replicationAddress>http://localhost:8080/peg</replicationAddress>
+    <requestTimeout>30000</requestTimeout>
 
     <initialization>
-
         <!--24 hours-->
         <window>86400000</window>
 

@@ -1,6 +1,6 @@
 package peg;
 
-import java.net.URI;
+import java.util.List;
 
 /**
  * Agent provides the mechanism to establish and maintain a {@link Session} with other Agents. A Agent
@@ -8,11 +8,50 @@ import java.net.URI;
  */
 public interface Agent {
 
-    String getId();
-
+    /**
+     * Obtains the name of the Agent as it is to be known to he group
+     * @return
+     */
     String getName();
 
-    void join(URI connectionPath);
+    /**
+     * Obtains the agent's handle
+     * @return
+     */
+    AgentHandle getAgentHandle();
 
-    void leave(URI connectionPath);
+    /**
+     * Triggers an initialization implementation
+     */
+    void initialize();
+
+    // TODO: consider moving these to a connection handler abstraction
+
+    /**
+     * Indicates that the Agent is connected to a corresponding client
+     * @return
+     */
+    boolean isConnected();
+
+    /**
+     * Handler for connection
+     */
+    void onConnected();
+
+    /**
+     * Disconnection handler
+     */
+    void onDisconnected();
+
+    /**
+     * Connection fault handler
+     */
+    void onConnectionFault();
+
+    /**
+     * Handler for updates to the group layout
+     * @param groups
+     */
+    void onGroupUpdate(List<String> groups);
+
 }
