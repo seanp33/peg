@@ -27,8 +27,12 @@ public class BayeuxAgent extends ConfigurableAgent {
     @Override
     public void initialize() {
         logger.info("Initializing");
+        // TODO: establish listeners for group update
+        // TODO: establish listeners for session start and stop
+        // TODO: establish listeners for replication data
 
-        // batch up commands for starting the 3a stage
+        // TODO: establish connection to buddies
+        // TODO: batch up commands for starting the 3a stage
     }
 
     @Override
@@ -57,6 +61,7 @@ public class BayeuxAgent extends ConfigurableAgent {
     }
 
     private void initClient() {
+
     }
 
     private void initServer() {
