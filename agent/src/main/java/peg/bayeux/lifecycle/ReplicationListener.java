@@ -9,7 +9,7 @@ import peg.Agent;
 /**
  * Defines a listener for handling incoming replication data
  */
-public class ReplicationListener implements ClientSessionChannel.MessageListener{
+public class ReplicationListener implements ClientSessionChannel.MessageListener {
 
     protected final static Logger logger = LoggerFactory.getLogger(ReplicationListener.class);
 
@@ -21,7 +21,7 @@ public class ReplicationListener implements ClientSessionChannel.MessageListener
 
     @Override
     public void onMessage(ClientSessionChannel clientSessionChannel, Message message) {
-
+        logger.debug("onMessage");
         // TODO: obtain
     }
 }

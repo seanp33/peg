@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+    <name>agent::8080</name>
+    <corePoolSize>25</corePoolSize>
+    <replicationAddress>http://localhost:8080/peg</replicationAddress>
+    <requestTimeout>30000</requestTimeout>
+    <initialReplicationWindow>86400000</initialReplicationWindow>
+
+    <buddies>
+        <buddy>http://localhost:5050/peg</buddy>
+        <buddy>http://localhost:6060/peg</buddy>
+    </buddies>
+
+    <pegs>
+        <peg>http://localhost:7070/peg</peg>
+    </pegs>
+
+</configuration>

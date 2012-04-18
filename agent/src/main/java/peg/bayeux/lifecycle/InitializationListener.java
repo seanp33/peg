@@ -18,6 +18,7 @@ public class InitializationListener implements ClientSessionChannel.MessageListe
 
     @Override
     public void onMessage(ClientSessionChannel clientSessionChannel, Message message) {
+        logger.debug("onMessage");
         if (message.isSuccessful()) {
             agent.initialize();
         }

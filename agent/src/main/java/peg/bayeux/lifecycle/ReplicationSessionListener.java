@@ -21,6 +21,7 @@ public class ReplicationSessionListener implements ClientSessionChannel.MessageL
 
     @Override
     public void onMessage(ClientSessionChannel clientSessionChannel, Message message) {
+        logger.debug("onMessage");
         // TODO: enable handling of session and start, stop, and fault events
     }
 

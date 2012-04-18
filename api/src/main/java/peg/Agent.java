@@ -25,29 +25,6 @@ public interface Agent {
      */
     void initialize();
 
-    // TODO: consider moving these to a connection handler abstraction
-
-    /**
-     * Indicates that the Agent is connected to a corresponding client
-     * @return
-     */
-    boolean isConnected();
-
-    /**
-     * Handler for connection
-     */
-    void onConnected();
-
-    /**
-     * Disconnection handler
-     */
-    void onDisconnected();
-
-    /**
-     * Connection fault handler
-     */
-    void onConnectionFault();
-
     /**
      * Handler for updates to the group layout
      * @param groups
