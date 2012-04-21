@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
-    <name>agent::8080</name>
+    <name>AGENT XYZ</name>
     <corePoolSize>25</corePoolSize>
     <replicationAddress>http://localhost:8080/peg</replicationAddress>
     <requestTimeout>30000</requestTimeout>

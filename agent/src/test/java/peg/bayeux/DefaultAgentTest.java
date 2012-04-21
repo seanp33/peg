@@ -1,14 +1,13 @@
 package peg.bayeux;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
 import peg.configuration.AgentConfiguration;
 
-public class BayeuxAgentTest {
+public class DefaultAgentTest {
 
     @Test
     public void testInitialization() throws Exception{
-        BayeuxAgent agent = new BayeuxAgent(AgentConfiguration.getInstance());
+        DefaultAgent agent = new DefaultAgent(AgentConfiguration.getInstance());
         agent.initialize();
     }
 }
