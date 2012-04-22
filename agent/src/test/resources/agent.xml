@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
     <name>AGENT XYZ</name>
+    <port>8080</port>
     <corePoolSize>25</corePoolSize>
-    <replicationAddress>http://localhost:8080/peg</replicationAddress>
+    <replicationAddress>http://localhost:7171/replication</replicationAddress>
     <requestTimeout>30000</requestTimeout>
     <initialReplicationWindow>86400000</initialReplicationWindow>
 
     <buddies>
-        <buddy>http://localhost:5050/peg</buddy>
-        <buddy>http://localhost:6060/peg</buddy>
+        <!--for testing buddy with self at 8080-->
+        <buddy>http://localhost:8080/peg</buddy>
+        <!--<buddy>http://localhost:5050/peg</buddy>-->
     </buddies>
 
     <pegs>
-        <peg>http://localhost:7070/peg</peg>
+        <!--<peg>http://localhost:6060/peg</peg>-->
     </pegs>
 
 </configuration>

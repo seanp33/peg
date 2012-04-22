@@ -1,7 +1,7 @@
 package peg;
 
 /**
- * A pair of properties describing an Agent's name and address
+ * A pair of properties describing an PegAgent's name and address
  */
 public class AgentHandle {
 

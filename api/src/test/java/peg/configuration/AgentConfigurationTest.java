@@ -9,8 +9,9 @@ public class AgentConfigurationTest {
     public void testAgentConfiguration(){
         AgentConfiguration config = AgentConfiguration.getInstance();
         assertNotNull(config);
-        assertEquals("agent::8080", config.getName());
-        assertEquals("http://localhost:8080/peg", config.getReplicationAddress());
+        assertEquals("agent::7070", config.getName());
+        assertEquals(7070, config.getPort());
+        assertEquals("http://localhost:7171/replication", config.getReplicationAddress());
         assertEquals(25, config.getCorePoolSize());
         assertEquals(30000, config.getRequestTimeout());
         assertEquals(86400000, config.getInitialReplicationWindow());

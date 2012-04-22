@@ -7,11 +7,11 @@ import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import peg.Client;
+import peg.PegClient;
 
-public class DefaultClient implements Client, ClientSessionChannel.MessageListener {
+public class BayeuxPegClient implements PegClient, ClientSessionChannel.MessageListener {
 
-    protected final static Logger logger = LoggerFactory.getLogger(DefaultClient.class);
+    protected final static Logger logger = LoggerFactory.getLogger(BayeuxPegClient.class);
 
     private String name;
 
@@ -21,8 +21,8 @@ public class DefaultClient implements Client, ClientSessionChannel.MessageListen
 
     private EventBus eventBus;
 
-    public DefaultClient(final String name, final BayeuxClient bayeuxClient,
-                         final long requestTimeout, final EventBus eventBus) {
+    public BayeuxPegClient(final String name, final BayeuxClient bayeuxClient,
+                           final long requestTimeout, final EventBus eventBus) {
         this.name = name;
         this.bayeuxClient = bayeuxClient;
         this.requestTimeout = requestTimeout;
@@ -40,7 +40,7 @@ public class DefaultClient implements Client, ClientSessionChannel.MessageListen
         bayeuxClient.handshake();
         boolean ok = bayeuxClient.waitFor(requestTimeout, BayeuxClient.State.CONNECTED);
         if (!ok) {
-            String msg = "Could not establish handshake with " + bayeuxClient.getId();
+            String msg = "Could not establish handshake with...";
             logger.error(msg);
             throw new RuntimeException(msg);
         }

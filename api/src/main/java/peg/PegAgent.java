@@ -3,13 +3,13 @@ package peg;
 import java.util.List;
 
 /**
- * Agent provides the mechanism to establish and maintain a {@link Session} with other Agents. A Agent
+ * PegAgent provides the mechanism to establish and maintain a {@link Session} with other Agents. A PegAgent
  * can be uniquely identified by the their name and id properties
  */
-public interface Agent {
+public interface PegAgent {
 
     /**
-     * Obtains the name of the Agent as it is to be known to he group
+     * Obtains the name of the PegAgent as it is to be known to he group
      * @return
      */
     String getName();
@@ -24,6 +24,11 @@ public interface Agent {
      * Triggers an initialization implementation
      */
     void initialize();
+
+    /**
+     * Triggers a shutdown implementation
+     */
+    void shutDown();
 
     /**
      * Handler for updates to the group layout

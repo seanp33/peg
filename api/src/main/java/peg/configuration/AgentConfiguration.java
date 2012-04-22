@@ -9,6 +9,8 @@ public class AgentConfiguration {
 
     private String name;
 
+    private int port;
+
     private String agentAddress;
 
     private int corePoolSize;
@@ -47,6 +49,14 @@ public class AgentConfiguration {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
     public String getAgentAddress() {

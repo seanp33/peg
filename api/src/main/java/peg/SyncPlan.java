@@ -5,9 +5,9 @@ package peg;
  */
 public interface SyncPlan {
 
-    void addMember(Agent agent);
+    void addMember(PegAgent pegAgent);
 
-    void removeMember(Agent agent);
+    void removeMember(PegAgent pegAgent);
 
     void execute(boolean dryrun);
 }

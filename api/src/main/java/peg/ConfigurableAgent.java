@@ -2,7 +2,7 @@ package peg;
 
 import peg.configuration.AgentConfiguration;
 
-public abstract class ConfigurableAgent implements Agent {
+public abstract class ConfigurableAgent implements PegAgent {
 
     protected AgentConfiguration configuration;
 

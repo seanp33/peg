@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--peg.configuration.AgentConfigurationTest-->
 <configuration>
-    <name>agent::8080</name>
+    <name>agent::7070</name>
+    <port>7070</port>
     <corePoolSize>25</corePoolSize>
-    <replicationAddress>http://localhost:8080/peg</replicationAddress>
+    <replicationAddress>http://localhost:7171/replication</replicationAddress>
     <requestTimeout>30000</requestTimeout>
     <initialReplicationWindow>86400000</initialReplicationWindow>
 
     <buddies>
+        <buddy>http://localhost:4040/peg</buddy>
         <buddy>http://localhost:5050/peg</buddy>
-        <buddy>http://localhost:6060/peg</buddy>
     </buddies>
 
     <pegs>
-        <peg>http://localhost:7070/peg</peg>
+        <peg>http://localhost:6060/peg</peg>
     </pegs>
 
 </configuration>

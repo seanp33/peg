@@ -3,7 +3,7 @@ package peg;
 import java.util.Collection;
 
 /**
- * Defines a session between multiple {@link Agent} instances
+ * Defines a session between multiple {@link PegAgent} instances
  */
 public interface Session {
 
