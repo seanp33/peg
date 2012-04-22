@@ -1,11 +1,13 @@
 package peg.bayeux;
 
 import com.google.common.eventbus.EventBus;
-import org.cometd.bayeux.server.BayeuxServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import peg.PegAgent;
-import peg.PegClient;
+import peg.bayeux.client.BayeuxClientFactory;
+import peg.bayeux.client.BayeuxPegClient;
+import peg.bayeux.server.BayeuxPegServer;
+import peg.client.PegClient;
 import peg.ConfigurableAgent;
 import peg.configuration.AgentConfiguration;
 
@@ -63,6 +65,7 @@ public class BayeuxPegAgent extends ConfigurableAgent {
         }
     }
 
+    // TODO: utilize @Subscribe to connect this handler to a PegClient receiving group layout changes
     @Override
     public void onGroupUpdate(List<String> groups) {
         logger.debug("groups are now: " + groups);

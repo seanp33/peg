@@ -1,4 +1,4 @@
-package peg.bayeux;
+package peg.bayeux.server;
 
 import com.google.common.eventbus.EventBus;
 import org.cometd.server.AbstractServerTransport;
@@ -15,11 +15,11 @@ import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.thread.ExecutorThreadPool;
-import org.eclipse.jetty.util.thread.QueuedThreadPool;
-import org.eclipse.jetty.websocket.WebSocketClientFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import peg.PegServer;
+import peg.bayeux.client.BayeuxPegClient;
+import peg.bayeux.server.service.GroupInformationService;
+import peg.server.PegServer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -122,12 +122,15 @@ public class BayeuxPegServer implements PegServer {
 
         BayeuxServerImpl bayeux = cometServlet.getBayeux();
 
-        ThreadPoolExecutor websocketThreadPool = new ThreadPoolExecutor(maxThreads, maxThreads, 60l, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
+        ThreadPoolExecutor websocketThreadPool = new ThreadPoolExecutor(maxThreads, maxThreads, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
 
         LoadWebSocketTransport webSocketTransport = new LoadWebSocketTransport(bayeux, websocketThreadPool);
         webSocketTransport.init();
         bayeux.addTransport(webSocketTransport);
         bayeux.setAllowedTransports("websocket", "long-polling");
+
+        // configure GroupInformationService
+        new GroupInformationService(bayeux, "group-information-service", maxThreads);
     }
 
 

@@ -1,4 +1,4 @@
-package peg.bayeux;
+package peg.bayeux.client;
 
 import com.google.common.eventbus.EventBus;
 import org.cometd.bayeux.Channel;
@@ -7,7 +7,7 @@ import org.cometd.bayeux.client.ClientSessionChannel;
 import org.cometd.client.BayeuxClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import peg.PegClient;
+import peg.client.PegClient;
 
 public class BayeuxPegClient implements PegClient, ClientSessionChannel.MessageListener {
 
@@ -47,21 +47,32 @@ public class BayeuxPegClient implements PegClient, ClientSessionChannel.MessageL
     }
 
     @Override
+    public void requestGroupInformation() {
+        bayeuxClient.getChannel("/service/group/layout").addListener(this);
+        bayeuxClient.getChannel("/service/group/layout").publish(name);
+    }
+
+    @Override
     public boolean isConnected() {
         return bayeuxClient.isConnected();
     }
 
     @Override
     public void onMessage(ClientSessionChannel clientSessionChannel, Message message) {
-        String msg = name + " handling message  " + clientSessionChannel.getId() + " from ";
+        String channel = clientSessionChannel.getId();
+        String msg = name + " handling message  " + channel + " from ";
         System.out.println(msg);
         logger.trace(msg);
+
+        if(channel.equals(Channel.META_CONNECT)){
+            requestGroupInformation();
+        }else if(channel.equals("/service/group/layout")){
+            System.out.println("response from /service/group/layout : " + message.getData());
+        }
     }
 
     private void initializeListeners() {
         bayeuxClient.getChannel(Channel.META_HANDSHAKE).addListener(this);
         bayeuxClient.getChannel(Channel.META_CONNECT).addListener(this);
     }
-
-
 }

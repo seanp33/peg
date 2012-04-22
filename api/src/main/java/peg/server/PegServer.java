@@ -1,4 +1,4 @@
-package peg;
+package peg.server;
 
 /**
  * Defines the core server interface

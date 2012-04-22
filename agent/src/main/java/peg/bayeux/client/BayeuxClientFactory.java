@@ -1,4 +1,4 @@
-package peg.bayeux;
+package peg.bayeux.client;
 
 import org.cometd.client.BayeuxClient;
 import org.cometd.websocket.client.WebSocketTransport;
