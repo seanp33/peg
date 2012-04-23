@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import peg.client.PegClient;
 
+import java.util.List;
+
 public class BayeuxPegClient implements PegClient, ClientSessionChannel.MessageListener {
 
     protected final static Logger logger = LoggerFactory.getLogger(BayeuxPegClient.class);
@@ -48,7 +50,7 @@ public class BayeuxPegClient implements PegClient, ClientSessionChannel.MessageL
 
     @Override
     public void requestGroupInformation() {
-        bayeuxClient.getChannel("/service/group/layout").addListener(this);
+        bayeuxClient.getChannel("/service/group/layout-response").addListener(this);
         bayeuxClient.getChannel("/service/group/layout").publish(name);
     }
 
@@ -60,14 +62,14 @@ public class BayeuxPegClient implements PegClient, ClientSessionChannel.MessageL
     @Override
     public void onMessage(ClientSessionChannel clientSessionChannel, Message message) {
         String channel = clientSessionChannel.getId();
-        String msg = name + " handling message  " + channel + " from ";
+        String msg = name + "...[handling message  " + channel + "]...";
         System.out.println(msg);
         logger.trace(msg);
 
         if(channel.equals(Channel.META_CONNECT)){
             requestGroupInformation();
-        }else if(channel.equals("/service/group/layout")){
-            System.out.println("response from /service/group/layout : " + message.getData());
+        }else if(channel.equals("/service/group/layout-response")){
+            System.out.println("/service/group/layout-response : " + message.getJSON());
         }
     }
 

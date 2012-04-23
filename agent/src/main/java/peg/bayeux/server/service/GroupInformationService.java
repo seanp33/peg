@@ -33,8 +33,8 @@ public class GroupInformationService extends AbstractService {
         addService("/service/group/layout", "getGroupLayout");
     }
 
-    public List<String> getGroupLayout(ServerSession remote, Message message) {
-        String msg = "Handling getGroupLayoutRequest from " + message.getData();
+    public void getGroupLayout(ServerSession remote, Message message) {
+        String msg = "...[Handling getGroupLayoutRequest from " + message.getId() + "]...";
         System.out.println(msg);
         logger.trace(msg);
 
@@ -44,6 +44,7 @@ public class GroupInformationService extends AbstractService {
         group.add("http://example.org:8888/peg");
         group.add("http://example.org:9999/peg");
 
-        return group;
+        remote.deliver(getServerSession(), "/service/group/layout-response", group, null);
+
     }
 }
